@@ -22,9 +22,9 @@ CREATE PROCEDURE GetHighSalaryUsers(IN min_salary INT)
 
 BEGIN
 
-    SELECT id, name, salary 
-    FROM users 
-    WHERE salary > min_salary;
+SELECT id, name, salary 
+FROM users 
+WHERE salary > min_salary;
     
 END$$
 
@@ -46,11 +46,11 @@ DETERMINISTIC
 
 BEGIN
 
-    IF salary > 80000 THEN
-        RETURN salary * 0.10;
-    ELSE
-        RETURN salary * 0.05;
-    END IF;
+IF salary > 80000 THEN
+RETURN salary * 0.10;
+ELSE
+RETURN salary * 0.05;
+END IF;
     
 END$$
 
