@@ -19,10 +19,13 @@ Table: users → Stores user details including ID, name, gender, age, and salary
 DELIMITER $$
 
 CREATE PROCEDURE GetHighSalaryUsers(IN min_salary INT)
+
 BEGIN
+
     SELECT id, name, salary 
     FROM users 
     WHERE salary > min_salary;
+    
 END$$
 
 DELIMITER ;
@@ -36,14 +39,19 @@ CALL GetHighSalaryUsers(80000);
 DELIMITER $$
 
 CREATE FUNCTION CalculateBonus(salary INT)
+
 RETURNS INT
+
 DETERMINISTIC
+
 BEGIN
+
     IF salary > 80000 THEN
         RETURN salary * 0.10;
     ELSE
         RETURN salary * 0.05;
     END IF;
+    
 END$$
 
 DELIMITER ;
